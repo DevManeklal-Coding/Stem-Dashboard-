@@ -1,6 +1,9 @@
 # Troy Tech Preparatory STEM Dashboard
-A centralized engineering dashboard built to automate advanced mathematical computations, test script automation protocols, and track coding consistency throughout my preparation for the Troy High School magnet program.
+
 [![STEM Dashboard Test Runner](https://github.com)](https://github.com)
+
+[🖥️ Click Here to Launch the Live Interactive Engineering Dashboard Website](https://github.io)
+
 ## 🟢 The Green Activity Tracker Routine
 This repository serves as my primary project log. To establish a verifiable, multi-year coding streak on my GitHub profile activity map, I commit updates following this development timeline:
 * **Month 1 Progression**: Establish structural DOM integration, CSS framework variables, and raw functional layout formatting.
