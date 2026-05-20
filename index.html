@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Troy Tech STEM Dashboard</title>
+    <title>Advanced STEM Computation Matrix</title>
     <style>
         :root {
             --bg-dark: #030712;
@@ -30,7 +30,6 @@
             margin: 0 auto;
         }
 
-        /* Top Branding Architecture */
         header {
             background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
             border: 1px solid var(--panel-border);
@@ -53,13 +52,8 @@
             font-weight: 700;
         }
 
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            margin: 0;
-        }
+        .subtitle { color: var(--text-secondary); margin: 0; font-size: 1rem; }
 
-        /* Live Automated Metrics System */
         .system-badge {
             background: var(--accent-soft);
             border: 1px solid var(--accent-glow);
@@ -85,21 +79,14 @@
             100% { transform: scale(0.9); opacity: 1; }
         }
 
-        .badge-text {
-            font-family: monospace;
-            color: var(--text-terminal);
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
+        .badge-text { font-family: monospace; color: var(--text-terminal); font-size: 0.9rem; font-weight: bold; }
 
-        /* System Grid Layout */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
             gap: 24px;
         }
 
-        /* Engineering Card Interfaces */
         .card {
             background-color: var(--panel-bg);
             border: 1px solid var(--panel-border);
@@ -120,9 +107,6 @@
             margin-top: 0;
             font-size: 1.25rem;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
             border-bottom: 1px solid var(--panel-border);
             padding-bottom: 12px;
             margin-bottom: 16px;
@@ -138,7 +122,6 @@
             font-weight: 600;
         }
 
-        /* Industrial Inputs and Controls */
         input {
             width: 100%;
             padding: 10px 14px;
@@ -152,10 +135,7 @@
             transition: border-color 0.2s;
         }
 
-        input:focus {
-            outline: none;
-            border-color: var(--accent-glow);
-        }
+        input:focus { outline: none; border-color: var(--accent-glow); }
 
         button {
             width: 100%;
@@ -168,12 +148,10 @@
             font-size: 0.95rem;
             cursor: pointer;
             margin-top: 20px;
-            transition: opacity 0.2s;
         }
 
         button:hover { opacity: 0.9; }
 
-        /* Integrated Output Terminal */
         .result-box {
             margin-top: 20px;
             padding: 14px;
@@ -191,64 +169,99 @@
 <div class="dashboard-container">
     <header>
         <div class="header-main">
-            <h1> STEM Computation Matrix</h1>
+            <h1>Advanced STEM Computation Matrix</h1>
             <p class="subtitle">Centralized automated mathematical processing environment.</p>
         </div>
         <div class="system-badge">
             <div class="pulse-indicator"></div>
-            <div class="badge-text">ACTIONS ENGINE: ACTIVE [PASSING]</div>
+            <div class="badge-text">SYSTEM CORE: ONLINE</div>
         </div>
     </header>
 
     <div class="grid">
-        <!-- Engine 1 -->
+        <!-- Card 1 -->
         <div class="card">
-            <h2><span>Vector</span> Coordinate Distance Engine</h2>
-            <label>Coordinate Vector A (X1, Y1):</label>
+            <h2>1. Coordinate Distance Engine</h2>
+            <label>Point A (X1, Y1):</label>
             <div style="display: flex; gap: 12px;">
                 <input type="number" id="x1" value="0">
                 <input type="number" id="y1" value="0">
             </div>
-            <label>Coordinate Vector B (X2, Y2):</label>
+            <label>Point B (X2, Y2):</label>
             <div style="display: flex; gap: 12px;">
                 <input type="number" id="x2" value="3">
                 <input type="number" id="y2" value="4">
             </div>
-            <button onclick="calculateDistance()">EXECUTE SPATIAL EVALUATION</button>
-            <div class="result-box" id="distance-result">&gt; Waiting for execution input parameters...</div>
+            <button onclick="calculateDistance()">EXECUTE EVALUATION</button>
+            <div class="result-box" id="distance-result">&gt; Waiting for parameters...</div>
         </div>
 
-        <!-- Engine 2 -->
+        <!-- Card 2 -->
         <div class="card">
-            <h2><span>Matrix</span> Quadratic Polynomial Engine</h2>
-            <label>Matrix Polynomial Coefficients (a, b, c):</label>
+            <h2>2. Quadratic Polynomial Engine</h2>
+            <label>Coefficients (a, b, c):</label>
             <div style="display: flex; gap: 12px;">
                 <div><label style="margin-top:0;">a</label><input type="number" id="quad-a" value="1"></div>
                 <div><label style="margin-top:0;">b</label><input type="number" id="quad-b" value="-5"></div>
                 <div><label style="margin-top:0;">c</label><input type="number" id="quad-c" value="6"></div>
             </div>
-            <button onclick="calculateQuadratic()">RESOLVE PARABOLIC ROOTS</button>
-            <div class="result-box" id="quadratic-result">&gt; Waiting for execution input parameters...</div>
+            <button onclick="calculateQuadratic()">RESOLVE ROOTS</button>
+            <div class="result-box" id="quadratic-result">&gt; Waiting for parameters...</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <h2>3. Sorting Sandbox Matrix</h2>
+            <label>Comma-Separated Data Array:</label>
+            <input type="text" id="sort-input" value="12, -3, 5.5, 0, 22, -1">
+            <button onclick="executeSorting()">SORT ASCENDING MATRIX</button>
+            <div class="result-box" id="sorting-result">&gt; Waiting for parameters...</div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card">
+            <h2>4. 2x2 Matrix Determinant Engine</h2>
+            <label>Matrix Row 1:</label>
+            <div style="display: flex; gap: 12px;">
+                <input type="number" id="m-a" value="4">
+                <input type="number" id="m-b" value="6">
+            </div>
+            <label>Matrix Row 2:</label>
+            <div style="display: flex; gap: 12px;">
+                <input type="number" id="m-c" value="3">
+                <input type="number" id="m-d" value="8">
+            </div>
+            <button onclick="calculateDeterminant()">RESOLVE SCALAR TRANSFORMATION</button>
+            <div class="result-box" id="matrix-result">&gt; Waiting for parameters...</div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="card">
+            <h2>5. Calculus Differentiation Engine</h2>
+            <label>Function Schema: f(x) = x² + 2x</label>
+            <label>Evaluation Point (x):</label>
+            <input type="number" id="deriv-x" value="3">
+            <button onclick="calculateDerivative()">COMPUTE INSTANTANEOUS GRADIENT</button>
+            <div class="result-box" id="derivative-result">&gt; Waiting for parameters...</div>
         </div>
     </div>
 </div>
 
 <script>
     function calculateDistance() {
-        const x1 = parseFloat(document.getElementById('x1').value);
-        const y1 = parseFloat(document.getElementById('y1').value);
-        const x2 = parseFloat(document.getElementById('x2').value);
-        const y2 = parseFloat(document.getElementById('y2').value);
+        const x1 = parseFloat(document.getElementById('x1').value) || 0;
+        const y1 = parseFloat(document.getElementById('y1').value) || 0;
+        const x2 = parseFloat(document.getElementById('x2').value) || 0;
+        const y2 = parseFloat(document.getElementById('y2').value) || 0;
         const dist = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
         document.getElementById('distance-result').innerHTML = `&gt; COMP_SUCCESS: VECTOR LENGTH = ${dist}`;
     }
 
     function calculateQuadratic() {
-        const a = parseFloat(document.getElementById('quad-a').value);
-        const b = parseFloat(document.getElementById('quad-b').value);
-        const c = parseFloat(document.getElementById('quad-c').value);
+        const a = parseFloat(document.getElementById('quad-a').value) || 1;
+        const b = parseFloat(document.getElementById('quad-b').value) || 0;
+        const c = parseFloat(document.getElementById('quad-c').value) || 0;
         const disc = Math.pow(b, 2) - (4 * a * c);
-        
         if (disc >= 0) {
             const r1 = (-b + Math.sqrt(disc)) / (2 * a);
             const r2 = (-b - Math.sqrt(disc)) / (2 * a);
@@ -258,6 +271,29 @@
             const imag = (Math.sqrt(-disc) / (2 * a)).toFixed(2);
             document.getElementById('quadratic-result').innerHTML = `&gt; TRANS_COMPLEX: MATRICES = [${real} + ${imag}i, ${real} - ${imag}i]`;
         }
+    }
+
+    function executeSorting() {
+        const input = document.getElementById('sort-input').value;
+        const sorted = input.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n)).sort((a,b) => a-b);
+        document.getElementById('sorting-result').innerHTML = `&gt; ALGO_SUCCESS: ARRAY = [${sorted.join(', ')}]`;
+    }
+
+    function calculateDeterminant() {
+        const a = parseFloat(document.getElementById('m-a').value) || 0;
+        const b = parseFloat(document.getElementById('m-b').value) || 0;
+        const c = parseFloat(document.getElementById('m-c').value) || 0;
+        const d = parseFloat(document.getElementById('m-d').value) || 0;
+        const det = (a * d) - (b * c);
+        document.getElementById('matrix-result').innerHTML = `&gt; SYS_SUCCESS: DETERMINANT (det A) = ${det}`;
+    }
+
+    function calculateDerivative() {
+        const x = parseFloat(document.getElementById('deriv-x').value) || 0;
+        const f = (val) => (val * val) + (2 * val); // f(x) = x^2 + 2x
+        const h = 0.00001;
+        const rate = (f(x + h) - f(x)) / h;
+        document.getElementById('derivative-result').innerHTML = `&gt; CALC_SUCCESS: f'(${x}) = ${Math.round(rate)}`;
     }
 </script>
 </body>
