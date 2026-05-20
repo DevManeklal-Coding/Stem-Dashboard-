@@ -1,8 +1,8 @@
 # STEM Dashboard
 
-[![STEM Dashboard Test Runner](https://github.com)](https://github.com)
+[![STEM Dashboard Test Runner](https://devmaneklal-coding.github.io/Stem-Dashboard-/)](https://devmaneklal-coding.github.io/Stem-Dashboard-/)
 
-[🖥️ Click Here to Launch the Live Interactive Engineering Dashboard Website](https://github.io)
+[🖥️ Click Here to Launch the Live Interactive Engineering Dashboard Website](https://devmaneklal-coding.github.io/Stem-Dashboard-/)
 
 
 ## 🟢 The Green Activity Tracker Routine
