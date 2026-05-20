@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Troy Tech STEM Dashboard</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --accent-color: #2ea44f;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 { color: #ffffff; margin-bottom: 5px; }
+        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+        }
+
+        .card h2 { color: #ffffff; margin-top: 0; font-size: 1.3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;}
+
+        label { display: block; margin: 10px 0 5px; font-size: 0.9rem; color: var(--text-muted); }
+        input {
+            width: 100%;
+            padding: 8px;
+            background-color: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: #ffffff;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover { opacity: 0.9; }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: rgba(46, 164, 79, 0.1);
+            border: 1px dashed var(--accent-color);
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+    <header>
+        <h1>📐 Troy Tech Preparatory STEM Dashboard</h1>
+        <p class="subtitle">An automated engineering environment blending advanced algebraic calculators with modern CSS interfaces.</p>
+    </header>
+
+    <div class="grid">
+        <!-- Distance Engine Card -->
+        <div class="card">
+            <h2>1. Coordinate Distance Engine</h2>
+            <label>Point 1 (X1, Y1):</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="number" id="x1" value="0">
+                <input type="number" id="y1" value="0">
+            </div>
+            <label>Point 2 (X2, Y2):</label>
+            <div style="display: flex; gap: 10px;">
+                <input type="number" id="x2" value="3">
+                <input type="number" id="y2" value="4">
+            </div>
+            <button onclick="calculateDistance()">Compute Vector Length</button>
+            <div class="result-box" id="distance-result">Output: Waiting for execution...</div>
+        </div>
+
+        <!-- Quadratic Root Card -->
+        <div class="card">
+            <h2>2. Quadratic Root Matrix</h2>
+            <div style="display: flex; gap: 10px;">
+                <div><label>a</label><input type="number" id="quad-a" value="1"></div>
+                <div><label>b</label><input type="number" id="quad-b" value="-5"></div>
+                <div><label>c</label><input type="number" id="quad-c" value="6"></div>
+            </div>
+            <button onclick="calculateQuadratic()">Extract Axis Intersections</button>
+            <div class="result-box" id="quadratic-result">Output: Waiting for execution...</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function calculateDistance() {
+        const x1 = parseFloat(document.getElementById('x1').value);
+        const y1 = parseFloat(document.getElementById('y1').value);
+        const x2 = parseFloat(document.getElementById('x2').value);
+        const y2 = parseFloat(document.getElementById('y2').value);
+        const dist = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+        document.getElementById('distance-result').innerText = `Distance = ${dist}`;
+    }
+
+    function calculateQuadratic() {
+        const a = parseFloat(document.getElementById('quad-a').value);
+        const b = parseFloat(document.getElementById('quad-b').value);
+        const c = parseFloat(document.getElementById('quad-c').value);
+        const disc = Math.pow(b, 2) - (4 * a * c);
+        
+        if (disc >= 0) {
+            const r1 = (-b + Math.sqrt(disc)) / (2 * a);
+            const r2 = (-b - Math.sqrt(disc)) / (2 * a);
+            document.getElementById('quadratic-result').innerText = r1 === r2 ? `Root: x = ${r1}` : `Roots: x = ${r1}, x = ${r2}`;
+        } else {
+            const real = (-b / (2 * a)).toFixed(2);
+            const imag = (Math.sqrt(-disc) / (2 * a)).toFixed(2);
+            document.getElementById('quadratic-result').innerText = `Complex: ${real} + ${imag}i, ${real} - ${imag}i`;
+        }
+    }
+</script>
+</body>
+</html>
