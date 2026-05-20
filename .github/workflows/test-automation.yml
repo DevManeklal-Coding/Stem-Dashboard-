@@ -1,0 +1,26 @@
+name: STEM Dashboard Test Runner
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  schedule:
+    # Runs automatically at 11:55 PM (23:55) UTC every night to keep your activity streak green
+    - cron: '55 23 * * *'
+
+jobs:
+  execute-mathematical-verification:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clone Code Repository
+      uses: actions/checkout@v4
+
+    - name: Initialize Node Environment
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Run Mathematical Test Suite
+      run: node dashboard.test.js
