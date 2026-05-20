@@ -2,7 +2,7 @@
 A centralized engineering platform built to automate advanced mathematical computations, execute test script automation protocols, and track code development consistency.
 
 ## 🚀 Live Environment Access
-### [🖥️ CLICK HERE TO LAUNCH THE INTERACTIVE DARK-MODE DASHBOARD WEBSITE](https://github.io)
+### [🖥️ CLICK HERE TO LAUNCH THE INTERACTIVE DARK-MODE DASHBOARD WEBSITE](https://devmaneklal-coding.github.io/Stem-Dashboard-/)
 
 ---
 
