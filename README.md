@@ -1,4 +1,4 @@
-# Troy Tech Preparatory STEM Dashboard
+# STEM Dashboard
 
 [![STEM Dashboard Test Runner](https://github.com)](https://github.com)
 
