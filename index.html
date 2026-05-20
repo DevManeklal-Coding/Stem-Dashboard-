@@ -6,84 +6,183 @@
     <title>Troy Tech STEM Dashboard</title>
     <style>
         :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --accent-color: #2ea44f;
-            --text-main: #c9d1d9;
-            --text-muted: #8b949e;
-            --border-color: #30363d;
+            --bg-dark: #030712;
+            --panel-bg: #111827;
+            --panel-border: #1f2937;
+            --accent-glow: #10b981;
+            --accent-soft: rgba(16, 185, 129, 0.15);
+            --text-primary: #f9fafb;
+            --text-secondary: #9ca3af;
+            --text-terminal: #34d399;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
             margin: 0;
-            padding: 20px;
+            padding: 40px 20px;
+            line-height: 1.5;
         }
 
         .dashboard-container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* Top Branding Architecture */
         header {
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 20px;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 30px;
             margin-bottom: 30px;
-        }
-
-        h1 { color: #ffffff; margin-bottom: 5px; }
-        .subtitle { color: var(--text-muted); font-size: 1.1rem; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
             gap: 20px;
         }
 
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 20px;
+        .header-main h1 {
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            font-size: 1.8rem;
+            letter-spacing: -0.025em;
+            font-weight: 700;
         }
 
-        .card h2 { color: #ffffff; margin-top: 0; font-size: 1.3rem; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;}
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin: 0;
+        }
 
-        label { display: block; margin: 10px 0 5px; font-size: 0.9rem; color: var(--text-muted); }
+        /* Live Automated Metrics System */
+        .system-badge {
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-glow);
+            border-radius: 8px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pulse-indicator {
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-glow);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-glow);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.5; }
+            100% { transform: scale(0.9); opacity: 1; }
+        }
+
+        .badge-text {
+            font-family: monospace;
+            color: var(--text-terminal);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* System Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        /* Engineering Card Interfaces */
+        .card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #374151;
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.6);
+        }
+
+        .card h2 {
+            color: #ffffff;
+            margin-top: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--panel-border);
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            margin: 12px 0 6px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        /* Industrial Inputs and Controls */
         input {
             width: 100%;
-            padding: 8px;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
+            padding: 10px 14px;
+            background-color: #030712;
+            border: 1px solid var(--panel-border);
             color: #ffffff;
-            border-radius: 4px;
+            border-radius: 6px;
             box-sizing: border-box;
+            font-family: monospace;
+            font-size: 0.95rem;
+            transition: border-color 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--accent-glow);
         }
 
         button {
             width: 100%;
-            padding: 10px;
-            background-color: var(--accent-color);
-            color: #ffffff;
+            padding: 12px;
+            background-color: var(--accent-glow);
+            color: #030712;
             border: none;
-            border-radius: 4px;
-            font-weight: bold;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 20px;
+            transition: opacity 0.2s;
         }
 
         button:hover { opacity: 0.9; }
 
+        /* Integrated Output Terminal */
         .result-box {
-            margin-top: 15px;
-            padding: 10px;
-            background-color: rgba(46, 164, 79, 0.1);
-            border: 1px dashed var(--accent-color);
-            border-radius: 4px;
+            margin-top: 20px;
+            padding: 14px;
+            background-color: #030712;
+            border-left: 4px solid var(--accent-glow);
+            border-radius: 0 6px 6px 0;
             font-family: monospace;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: var(--text-terminal);
         }
     </style>
 </head>
@@ -91,38 +190,45 @@
 
 <div class="dashboard-container">
     <header>
-        <h1>📐 Troy Tech Preparatory STEM Dashboard</h1>
-        <p class="subtitle">An automated engineering environment blending advanced algebraic calculators with modern CSS interfaces.</p>
+        <div class="header-main">
+            <h1>Troy Tech STEM Computation Matrix</h1>
+            <p class="subtitle">Centralized automated mathematical processing environment.</p>
+        </div>
+        <div class="system-badge">
+            <div class="pulse-indicator"></div>
+            <div class="badge-text">ACTIONS ENGINE: ACTIVE [PASSING]</div>
+        </div>
     </header>
 
     <div class="grid">
-        <!-- Distance Engine Card -->
+        <!-- Engine 1 -->
         <div class="card">
-            <h2>1. Coordinate Distance Engine</h2>
-            <label>Point 1 (X1, Y1):</label>
-            <div style="display: flex; gap: 10px;">
+            <h2><span>Vector</span> Coordinate Distance Engine</h2>
+            <label>Coordinate Vector A (X1, Y1):</label>
+            <div style="display: flex; gap: 12px;">
                 <input type="number" id="x1" value="0">
                 <input type="number" id="y1" value="0">
             </div>
-            <label>Point 2 (X2, Y2):</label>
-            <div style="display: flex; gap: 10px;">
+            <label>Coordinate Vector B (X2, Y2):</label>
+            <div style="display: flex; gap: 12px;">
                 <input type="number" id="x2" value="3">
                 <input type="number" id="y2" value="4">
             </div>
-            <button onclick="calculateDistance()">Compute Vector Length</button>
-            <div class="result-box" id="distance-result">Output: Waiting for execution...</div>
+            <button onclick="calculateDistance()">EXECUTE SPATIAL EVALUATION</button>
+            <div class="result-box" id="distance-result">&gt; Waiting for execution input parameters...</div>
         </div>
 
-        <!-- Quadratic Root Card -->
+        <!-- Engine 2 -->
         <div class="card">
-            <h2>2. Quadratic Root Matrix</h2>
-            <div style="display: flex; gap: 10px;">
-                <div><label>a</label><input type="number" id="quad-a" value="1"></div>
-                <div><label>b</label><input type="number" id="quad-b" value="-5"></div>
-                <div><label>c</label><input type="number" id="quad-c" value="6"></div>
+            <h2><span>Matrix</span> Quadratic Polynomial Engine</h2>
+            <label>Matrix Polynomial Coefficients (a, b, c):</label>
+            <div style="display: flex; gap: 12px;">
+                <div><label style="margin-top:0;">a</label><input type="number" id="quad-a" value="1"></div>
+                <div><label style="margin-top:0;">b</label><input type="number" id="quad-b" value="-5"></div>
+                <div><label style="margin-top:0;">c</label><input type="number" id="quad-c" value="6"></div>
             </div>
-            <button onclick="calculateQuadratic()">Extract Axis Intersections</button>
-            <div class="result-box" id="quadratic-result">Output: Waiting for execution...</div>
+            <button onclick="calculateQuadratic()">RESOLVE PARABOLIC ROOTS</button>
+            <div class="result-box" id="quadratic-result">&gt; Waiting for execution input parameters...</div>
         </div>
     </div>
 </div>
@@ -134,7 +240,7 @@
         const x2 = parseFloat(document.getElementById('x2').value);
         const y2 = parseFloat(document.getElementById('y2').value);
         const dist = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        document.getElementById('distance-result').innerText = `Distance = ${dist}`;
+        document.getElementById('distance-result').innerHTML = `&gt; COMP_SUCCESS: VECTOR LENGTH = ${dist}`;
     }
 
     function calculateQuadratic() {
@@ -146,11 +252,11 @@
         if (disc >= 0) {
             const r1 = (-b + Math.sqrt(disc)) / (2 * a);
             const r2 = (-b - Math.sqrt(disc)) / (2 * a);
-            document.getElementById('quadratic-result').innerText = r1 === r2 ? `Root: x = ${r1}` : `Roots: x = ${r1}, x = ${r2}`;
+            document.getElementById('quadratic-result').innerHTML = r1 === r2 ? `&gt; MAT_SUCCESS: REAL ROOT x = ${r1}` : `&gt; MAT_SUCCESS: REAL ROOTS x = [${r1}, ${r2}]`;
         } else {
             const real = (-b / (2 * a)).toFixed(2);
             const imag = (Math.sqrt(-disc) / (2 * a)).toFixed(2);
-            document.getElementById('quadratic-result').innerText = `Complex: ${real} + ${imag}i, ${real} - ${imag}i`;
+            document.getElementById('quadratic-result').innerHTML = `&gt; TRANS_COMPLEX: MATRICES = [${real} + ${imag}i, ${real} - ${imag}i]`;
         }
     }
 </script>
