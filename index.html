@@ -6,14 +6,14 @@
     <title>Advanced STEM Computation Matrix</title>
     <style>
         :root {
-            --bg-dark: #030712;
-            --panel-bg: #111827;
-            --panel-border: #1f2937;
-            --accent-glow: #10b981;
-            --accent-soft: rgba(16, 185, 129, 0.15);
-            --text-primary: #f9fafb;
-            --text-secondary: #9ca3af;
-            --text-terminal: #34d399;
+            --bg-dark: #faf6e4;        /* Warm cream background from image */
+            --panel-bg: #ffffff;       /* Clean white card elements */
+            --panel-border: #e6dfc3;   /* Soft tan framing lines */
+            --accent-glow: #f1c40f;    /* Vibrant gold toolbar/buttons */
+            --accent-soft: #fcf8e3;    /* Light gold alerts */
+            --text-primary: #5c4033;   /* Rich historical brown text */
+            --text-secondary: #7f6a5f; /* Muted brown descriptions */
+            --text-terminal: #b7950b;  /* Deep dark gold output logs */
         }
 
         body {
@@ -30,13 +30,14 @@
             margin: 0 auto;
         }
 
+        /* Top Brand Navigation Header */
         header {
-            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            background: var(--accent-glow);
             border: 1px solid var(--panel-border);
-            border-radius: 12px;
-            padding: 30px;
+            border-radius: 8px;
+            padding: 24px 30px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 10px rgba(92, 64, 51, 0.05);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,43 +45,46 @@
             gap: 20px;
         }
 
-        .header-main h1 {
-            color: #ffffff;
-            margin: 0 0 8px 0;
+        header h1 {
+            color: var(--text-primary);
+            margin: 0 0 4px 0;
             font-size: 1.8rem;
             letter-spacing: -0.025em;
             font-weight: 700;
         }
 
-        .subtitle { color: var(--text-secondary); margin: 0; font-size: 1rem; }
+        .subtitle {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 1rem;
+        }
 
         .system-badge {
-            background: var(--accent-soft);
-            border: 1px solid var(--accent-glow);
-            border-radius: 8px;
-            padding: 12px 20px;
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 6px;
+            padding: 10px 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
 
         .pulse-indicator {
             width: 10px;
             height: 10px;
-            background-color: var(--accent-glow);
+            background-color: #2ea44f;
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-glow);
-            animation: pulse 2s infinite;
+            box-shadow: 0 0 8px #2ea44f;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 1; }
-            50% { transform: scale(1.2); opacity: 0.5; }
-            100% { transform: scale(0.9); opacity: 1; }
+        .badge-text {
+            font-family: monospace;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: bold;
         }
 
-        .badge-text { font-family: monospace; color: var(--text-terminal); font-size: 0.9rem; font-weight: bold; }
-
+        /* Responsive Layout Matrix */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -90,24 +94,23 @@
         .card {
             background-color: var(--panel-bg);
             border: 1px solid var(--panel-border);
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(92, 64, 51, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
-            transform: translateY(-4px);
-            border-color: #374151;
-            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(92, 64, 51, 0.15);
         }
 
         .card h2 {
-            color: #ffffff;
+            color: var(--text-primary);
             margin-top: 0;
             font-size: 1.25rem;
             font-weight: 600;
-            border-bottom: 1px solid var(--panel-border);
+            border-bottom: 2px solid var(--bg-dark);
             padding-bottom: 12px;
             margin-bottom: 16px;
         }
@@ -125,9 +128,9 @@
         input {
             width: 100%;
             padding: 10px 14px;
-            background-color: #030712;
+            background-color: var(--bg-dark);
             border: 1px solid var(--panel-border);
-            color: #ffffff;
+            color: var(--text-primary);
             border-radius: 6px;
             box-sizing: border-box;
             font-family: monospace;
@@ -135,32 +138,40 @@
             transition: border-color 0.2s;
         }
 
-        input:focus { outline: none; border-color: var(--accent-glow); }
+        input:focus {
+            outline: none;
+            border-color: var(--text-primary);
+        }
 
         button {
             width: 100%;
             padding: 12px;
-            background-color: var(--accent-glow);
-            color: #030712;
+            background-color: var(--text-primary);
+            color: #ffffff;
             border: none;
             border-radius: 6px;
             font-weight: 700;
             font-size: 0.95rem;
             cursor: pointer;
             margin-top: 20px;
+            transition: opacity 0.2s;
         }
 
-        button:hover { opacity: 0.9; }
+        button:hover {
+            opacity: 0.9;
+        }
 
+        /* Calculation Terminal Screen */
         .result-box {
             margin-top: 20px;
             padding: 14px;
-            background-color: #030712;
-            border-left: 4px solid var(--accent-glow);
+            background-color: var(--bg-dark);
+            border-left: 4px solid var(--text-primary);
             border-radius: 0 6px 6px 0;
             font-family: monospace;
             font-size: 0.9rem;
             color: var(--text-terminal);
+            font-weight: 600;
         }
     </style>
 </head>
@@ -231,7 +242,7 @@
                 <input type="number" id="m-c" value="3">
                 <input type="number" id="m-d" value="8">
             </div>
-            <button onclick="calculateDeterminant()">RESOLVE SCALAR TRANSFORMATION</button>
+            <button onclick="calculateDeterminant()">RESOLVE MATRIX SCALAR</button>
             <div class="result-box" id="matrix-result">&gt; Waiting for parameters...</div>
         </div>
 
@@ -241,7 +252,7 @@
             <label>Function Schema: f(x) = x² + 2x</label>
             <label>Evaluation Point (x):</label>
             <input type="number" id="deriv-x" value="3">
-            <button onclick="calculateDerivative()">COMPUTE INSTANTANEOUS GRADIENT</button>
+            <button onclick="calculateDerivative()">COMPUTE GRADIENT LIMIT</button>
             <div class="result-box" id="derivative-result">&gt; Waiting for parameters...</div>
         </div>
     </div>
